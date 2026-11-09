@@ -9,7 +9,7 @@
     </style>
 
     <div class="example-wrapper">
-        <form action="{{ path('add_tarea') }}" method="post">
+        <form action="{{ path('new_tarea') }}" method="post" data-turbo="false">
             <label for="id">Id: </label>
             <input type="text" name="id" id="id" required />
 
