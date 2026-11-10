@@ -16,10 +16,15 @@ final class TareasController extends AbstractController
         4 => 'Tarea4',
     ];
 
-    #[Route('/tareas', name: 'app_tareas', methods: ['GET'])]
-    public function index(): Response
+    #[Route('/tareas', name: 'tareas_lista', defaults: ['_format' => 'html'])]
+    #[Route('/tareas.json', name: 'tareas_lista_json', defaults: ['_format' => 'json'])]
+    public function index(string $_format = 'html'): Response
     {
-        return $this->render('tareas/index.html.twig', [
+        if ($_format === 'json') {
+            return $this->json($this->list);
+        }
+
+        return $this->render('tareas/lista.html.twig', [
             'tareas' => $this->list,
         ]);
     }

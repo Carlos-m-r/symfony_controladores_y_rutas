@@ -1,0 +1,18 @@
+<h1>Catálogo de libros</h1>
+
+{% if categoria is defined %}
+    <h2>Categoría: {{ categoria }}</h2>
+{% endif %}
+
+<ul>
+    {% for id, libro in libros %}
+        <li>
+            <a href="{{ path('catalogo_detail', {id: id}) }}">
+                {{ libro.titulo }}
+            </a>
+            - {{ libro.categoria }}
+        </li>
+    {% else %}
+        <li>No hay libros en esta categoría.</li>
+    {% endfor %}
+</ul>

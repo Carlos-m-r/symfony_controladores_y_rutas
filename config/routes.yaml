@@ -9,3 +9,7 @@
 
 controllers:
     resource: routing.controllers
+
+saludo_yaml:
+    path: /saludo-yaml
+    controller: App\Controller\SaludoController::index
